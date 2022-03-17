@@ -1,0 +1,49 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.footer {
+  background-color: variables.$color-grayish-blue-20;
+  @include mixins.center;
+  justify-content: space-between;
+
+  @include mixins.respond(small) {
+    @include mixins.center(column);
+  }
+
+  &__nav {
+    @include mixins.center;
+    gap: 6vw;
+    @include mixins.respond(small) {
+      @include mixins.center(column);
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: start;
+    list-style: none;
+    gap: 4vw;
+    @include mixins.respond(small) {
+      @include mixins.center(column);
+      gap: 4vh;
+    }
+  }
+
+  &__link {
+    margin-top: -1rem;
+    color: variables.$color-gray-10;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 1.4rem;
+    transition: all 500ms;
+
+    &:hover,
+    &:active {
+      color: variables.$color-secondary;
+      path {
+        fill: variables.$color-secondary;
+      }
+    }
+  }
+}

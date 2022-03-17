@@ -1,0 +1,87 @@
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+.feature {
+  @include mixins.center(column);
+  gap: 10vh;
+
+  &__header {
+    @include mixins.section-header;
+  }
+
+  &__text-box {
+    width: 80%;
+  }
+  &__tab-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+
+    align-items: center;
+  }
+  &__tabs {
+    border-bottom: 2px solid variables.$color-gray-10;
+
+    @include mixins.respond(small) {
+      border-top: 2px solid variables.$color-gray-10;
+      border-bottom: none;
+      width: 100%;
+    }
+  }
+
+  &__list {
+    // border-bottom: 2px solid variables.$color-secondary;
+    display: flex;
+    list-style: none;
+
+    @include mixins.respond(small) {
+      @include mixins.center(column);
+      align-items: stretch;
+    }
+  }
+
+  &__item {
+    padding: 0 auto;
+    @include mixins.respond(small) {
+      border-bottom: 2px solid variables.$color-gray-10;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    color: variables.$color-grayish-blue-10;
+    padding: 2.4rem 2.4rem;
+    transition: all 300ms;
+    border-bottom: 4px solid transparent;
+
+    &:hover,
+    &:active {
+      color: variables.$color-secondary;
+    }
+
+    &.active {
+      color: variables.$color-grayish-blue-20;
+      border-bottom: 4px solid variables.$color-secondary;
+    }
+  }
+
+  &__box {
+    @include mixins.grid-col-2;
+    padding: 3.6rem;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    align-items: flex-start;
+  }
+}

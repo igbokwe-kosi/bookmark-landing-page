@@ -1,0 +1,23 @@
+@use '../abstracts/mixins';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 500ms;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth !important;
+  overflow-x: hidden;
+
+  @include mixins.respond(big) {
+    font-size: 50%;
+  }
+}
+
+body {
+  position: relative;
+}

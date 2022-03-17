@@ -1,0 +1,9 @@
+@use '../abstracts/mixins';
+
+.faq {
+  @include mixins.center(column);
+  gap: 10vh;
+  &__header {
+    @include mixins.section-header;
+  }
+}

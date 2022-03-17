@@ -1,0 +1,74 @@
+@use './variables';
+
+@mixin heading-typo($font-size) {
+  color: variables.$color-grayish-blue-20;
+  font-size: $font-size;
+  font-weight: variables.$font-weight-20;
+}
+@mixin center($flex-direction: row) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: center;
+  justify-content: center;
+}
+@mixin grid-col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3.6rem;
+  align-items: center;
+
+  @include respond(medium) {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.4rem;
+  }
+
+  @include respond(small) {
+    grid-template-columns: 1fr;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@mixin grid-col-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.6rem;
+  align-items: center;
+
+  @include respond(small) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@mixin section-header {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==big {
+    @media only screen and (max-width: 1200px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==medium {
+    @media only screen and (max-width: 900px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==small {
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==very-small {
+    @media only screen and (max-width: 480px) {
+      @content;
+    }
+  }
+}

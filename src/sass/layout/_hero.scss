@@ -1,0 +1,36 @@
+@use '../abstracts/mixins';
+.section-hero {
+  position: relative;
+}
+.hero {
+  @include mixins.grid-col-2;
+
+  &__text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    margin-top: -6.4rem;
+
+    @include mixins.respond(medium) {
+      margin-top: 0rem;
+    }
+
+    @include mixins.respond(small) {
+      gap: 5vh;
+    }
+  }
+  &__img-box {
+    @include mixins.respond(small) {
+      grid-row: 1;
+    }
+  }
+  &__img {
+    width: 100%;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    gap: 1.2rem;
+  }
+}

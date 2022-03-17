@@ -1,0 +1,70 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.btn {
+  @include mixins.respond(medium) {
+    font-size: variables.$font-size-smaller;
+  }
+  transition: all 500ms;
+  display: inline-block;
+  text-align: center;
+  &:link,
+  &:visited {
+    padding: 1.2rem 2.4rem;
+    background-color: variables.$color-gray-10;
+    color: variables.$color-grayish-blue-20;
+    text-decoration: none;
+    border: 2px solid variables.$color-gray-10;
+  }
+
+  &--round {
+    border-radius: 0.6rem;
+  }
+
+  &--shadow {
+    box-shadow: variables.$box-shadow;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+    border-color: variables.$color-grayish-blue-20;
+    background-color: transparent;
+  }
+  &:active {
+    transform: translateY(1rem);
+    box-shadow: none;
+  }
+  &--cta {
+    &:link,
+    &:visited {
+      border-color: variables.$color-primary;
+      padding: 1.2rem 2.4rem;
+      background-color: variables.$color-primary;
+      color: variables.$color-white;
+      text-decoration: none;
+    }
+    &:hover,
+    &:active {
+      border-color: variables.$color-primary;
+      background-color: transparent;
+      color: variables.$color-primary;
+    }
+  }
+
+  &--menu {
+    right: 7.5%;
+    position: fixed;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    z-index: 10;
+
+    display: none;
+
+    @include mixins.respond(small) {
+      display: block;
+    }
+  }
+}

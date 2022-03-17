@@ -1,0 +1,28 @@
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+.container {
+  max-width: 144rem;
+  margin: 0 auto;
+  padding: 4.8rem;
+  @include mixins.center(column);
+  gap: 7vh;
+}
+
+.hide {
+  /* visibility: hidden;
+  pointer-events: none;
+  opacity: 0; */
+  display: none;
+}
+
+.bg-secondary {
+  background-color: variables.$color-primary;
+}
+
+.text-white {
+  color: variables.$color-white !important;
+}
+
+.p-64 {
+  padding: 6.4rem !important;
+}

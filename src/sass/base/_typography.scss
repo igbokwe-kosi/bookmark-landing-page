@@ -1,0 +1,41 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins';
+body {
+  font-size: $font-size;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  color: $color-grayish-blue-10;
+}
+
+.heading-primary {
+  @include mixins.heading-typo(4.8rem);
+
+  @include mixins.respond(medium) {
+    @include mixins.heading-typo(3.4rem);
+  }
+}
+.text {
+  line-height: $line-height;
+}
+.heading-secondary {
+  @include mixins.heading-typo(3.2rem);
+  text-align: center;
+
+  @include mixins.respond(medium) {
+    @include mixins.heading-typo(2.8rem);
+  }
+
+  & + .text {
+    text-align: center;
+  }
+}
+.heading-tertiary {
+  @include mixins.heading-typo(2.4rem);
+}
+
+.sub-heading {
+  color: $color-white;
+  text-transform: uppercase;
+  font-weight: $font-weight;
+  letter-spacing: 0.4rem;
+}

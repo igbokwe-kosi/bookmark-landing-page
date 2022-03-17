@@ -1,0 +1,44 @@
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+
+.accordion {
+  @include mixins.center(column);
+  align-items: stretch;
+  width: 50vw;
+  @include mixins.respond(small) {
+    width: 92vw;
+  }
+  line-height: 1.8;
+
+  &__box {
+    list-style: none;
+    border-bottom: 1px solid variables.$color-grayish-blue-10;
+    padding: 2.5vh;
+    &:first-child {
+      border-top: 1px solid variables.$color-grayish-blue-10;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    &:hover {
+      cursor: pointer;
+      h3 {
+        color: variables.$color-secondary;
+      }
+    }
+
+    &.active svg {
+      transform: rotate(180deg);
+      path {
+        stroke: variables.$color-secondary;
+      }
+    }
+  }
+
+  &__question {
+    transition: all 500ms;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
