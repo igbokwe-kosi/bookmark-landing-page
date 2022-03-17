@@ -51,6 +51,7 @@
     }
 
     &--3 {
+      margin-top: 5rem;
       @include mixins.respond(small) {
         margin-top: 0;
       }
